@@ -1,0 +1,44 @@
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class SimpleTravelGuide {
+    public static void main(String[] args) {
+        Map<String, String> cityInfoMap = initializeCityInfo();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Please enter a city name (or type 'exit' to quit): ");
+            String cityName = scanner.nextLine().trim();
+
+            if (cityName.equalsIgnoreCase("exit")) {
+                System.out.println("Exiting the Travel Guide. Goodbye!");
+                break;
+            }
+
+            String cityInfo = getCityInformation(cityInfoMap, cityName);
+            System.out.println(cityInfo);
+        }
+
+        scanner.close();
+    }
+
+    private static Map<String, String> initializeCityInfo() {
+        Map<String, String> cityInfoMap = new HashMap<>();
+        cityInfoMap.put("South Korea", " Welcome to Korea!\n- Daegu\n- Jeju Island\n- N Seoul Tower");
+        cityInfoMap.put("Paris", "Welcome to Paris!\n- Eiffel Tower\n- Louvre Museum\n- Notre-Dame Cathedral");
+        cityInfoMap.put("Maldives", "Welcome to Maldives!\n- Snorkeling\n- Overwater Bungalows\n- White Sandy Beaches");
+        cityInfoMap.put("Bali", "Welcome to Bali!\n- Tanah Lot Temple\n- Ubud Monkey Forest\n- Kuta Beach");
+        cityInfoMap.put("Philippines", "Welcome to Philippines!\n- Boracay Island\n- Chocolate Hills\n- Palawan Island");
+        cityInfoMap.put("Malaysia", "Welcome to Malaysia!\n- Petronas Twin Towers\n- Batu Caves\n- Langkawi Island");
+        cityInfoMap.put("Singapore", "Welcome toSingapore!\n- Marina Bay Sands\n- Gardens by the Bay\n- Sentosa Island");
+        cityInfoMap.put("Burma", "Welcome to Burma!\n- Shwedagon Pagoda\n- Bagan Archaeological Area\n- Inle Lake");
+        return cityInfoMap;
+    }
+
+    private static String getCityInformation(Map<String, String> cityInfoMap, String cityName) {
+        return cityInfoMap.getOrDefault(cityName, "No travel information available for " + cityName);
+    }
+}
+
