@@ -1,0 +1,43 @@
+import json
+
+# JSON object
+data = {
+    "body": {
+        "name": "Golpe Maestro",
+        "popularity": 42,
+        "preview_url": "https://p.scdn.co/mp3-preview/4ac44a56e3a4b7b354c1273d7550bbad38c51f5d",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:3Qm86XLflmIXVm1wcwkgDK"
+    },
+    "headers": {
+        "date": "Fri, 27 Feb 2015 09:25:48 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=7200"
+    },
+    "statusCode": 200
+}
+
+# Extracting information
+track_name = data['body']['name']
+popularity = data['body']['popularity']
+preview_url = data['body']['preview_url']
+track_number = data['body']['track_number']
+track_type = data['body']['type']
+uri = data['body']['uri']
+response_date = data['headers']['date']
+content_type = data['headers']['content-type']
+cache_control = data['headers']['cache-control']
+status_code = data['statusCode']
+
+# Printing the output
+print(f"Track Name: {track_name}")
+print(f"Popularity: {popularity}")
+print(f"Preview URL: {preview_url}")
+print(f"Track Number: {track_number}")
+print(f"Type: {track_type}")
+print(f"URI: {uri}")
+print(f"Response Date: {response_date}")
+print(f"Content Type: {content_type}")
+print(f"Cache Control: {cache_control}")
+print(f"Status Code: {status_code}")
